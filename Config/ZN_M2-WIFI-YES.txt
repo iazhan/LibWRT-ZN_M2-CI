@@ -1,0 +1,80 @@
+# ============================================
+# 无线网络基础配置
+# ============================================
+CONFIG_ATH11K_NSS_SUPPORT=y                   # 启用 ATH11K NSS 加速
+CONFIG_DRIVER_11AC_SUPPORT=y                  # 启用 802.11ac (WiFi 5)
+CONFIG_DRIVER_11AX_SUPPORT=y                  # 启用 802.11ax (WiFi 6)
+CONFIG_DRIVER_11N_SUPPORT=y                   # 启用 802.11n
+
+# ============================================
+# ATH11K 驱动和固件
+# ============================================
+CONFIG_PACKAGE_kmod-ath=y                     # Atheros 无线驱动基础
+CONFIG_PACKAGE_kmod-ath11k=y                  # ATH11K 主驱动
+CONFIG_PACKAGE_kmod-ath11k-ahb=y              # ATH11K AHB 总线支持
+CONFIG_PACKAGE_ath11k-firmware-ipq6018=y      # IPQ6018 无线固件
+
+# ============================================
+# ZN M2 专用无线固件
+# ============================================
+CONFIG_PACKAGE_ipq-wifi-zn_m2=y               # ZN M2 无线校准数据
+
+# ============================================
+# MAC80211 无线框架
+# ============================================
+CONFIG_PACKAGE_kmod-cfg80211=y                # 802.11 配置 API
+CONFIG_PACKAGE_kmod-mac80211=y                # mac80211 无线框架
+
+# ============================================
+# 无线工具和服务
+# ============================================
+CONFIG_PACKAGE_hostapd-common=y               # hostapd 通用文件
+CONFIG_PACKAGE_wpad-basic-mbedtls=y           # WPA 认证守护进程 (mbedTLS)
+CONFIG_PACKAGE_iw=y                           # 无线配置工具
+CONFIG_PACKAGE_iwinfo=y                       # 无线信息库
+CONFIG_PACKAGE_wifi-scripts=y                 # WiFi 配置脚本
+CONFIG_PACKAGE_wireless-regdb=y               # 无线监管数据库
+
+# ============================================
+# NSS WiFi 硬件加速
+# ============================================
+CONFIG_NSS_DRV_WIFIOFFLOAD_ENABLE=y           # 启用 NSS WiFi 卸载加速
+CONFIG_PACKAGE_kmod-qca-nss-drv-wifi-meshmgr=y # NSS WiFi Mesh 管理
+
+# ============================================
+# WiFi 所需的加密模块
+# ============================================
+CONFIG_PACKAGE_kmod-crypto-aead=y             # AEAD 加密
+CONFIG_PACKAGE_kmod-crypto-ccm=y              # CCM 模式
+CONFIG_PACKAGE_kmod-crypto-cmac=y             # CMAC
+CONFIG_PACKAGE_kmod-crypto-ctr=y              # CTR 模式
+CONFIG_PACKAGE_kmod-crypto-gcm=y              # GCM 模式
+CONFIG_PACKAGE_kmod-crypto-gf128=y            # GF128
+CONFIG_PACKAGE_kmod-crypto-ghash=y            # GHASH
+CONFIG_PACKAGE_kmod-crypto-hmac=y             # HMAC
+CONFIG_PACKAGE_kmod-crypto-manager=y          # 加密管理器
+CONFIG_PACKAGE_kmod-crypto-michael-mic=y      # Michael MIC
+CONFIG_PACKAGE_kmod-crypto-rng=y              # 随机数生成器
+CONFIG_PACKAGE_kmod-crypto-sha256=y           # SHA256
+
+# ============================================
+# LuCI WiFi 支持
+# ============================================
+CONFIG_PACKAGE_luci-proto-wifi=y              # LuCI WiFi 协议支持
+
+# ============================================
+# RPC WiFi 模块
+# ============================================
+CONFIG_PACKAGE_rpcd-mod-iwinfo=y              # 无线信息 RPC 模块
+
+# ============================================
+# ucode WiFi 模块
+# ============================================
+CONFIG_PACKAGE_ucode-mod-nl80211=y            # nl80211 无线模块
+CONFIG_PACKAGE_ucode-mod-rtnl=y               # 路由 Netlink 模块
+CONFIG_PACKAGE_ucode-mod-uloop=y              # uloop 事件循环
+
+# ============================================
+# WiFi 所需的系统库
+# ============================================
+CONFIG_PACKAGE_libnl-tiny=y                   # Netlink 库
