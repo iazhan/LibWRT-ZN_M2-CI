@@ -61,9 +61,6 @@ jobs:
     name: ${{inputs.WRT_SOURCE}}
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Projects
-        uses: actions/checkout@main
-
       - name: 检查服务器性能
         run: |
           echo "警告⚠"
@@ -103,6 +100,9 @@ jobs:
           swap-size-mb: 1024
           temp-reserve-mb: 100
           root-reserve-mb: 1024
+
+      - name: Checkout Projects
+        uses: actions/checkout@main
 
       - name: 初始化变量
         run: |
@@ -165,6 +165,16 @@ jobs:
             echo "caches cleanup done!"
           fi
 
+      - name: Debug workspace content
+        run: |
+          echo "PWD = $(pwd)"
+          echo "WORKSPACE = $GITHUB_WORKSPACE"
+          echo "List workspace root:"
+          ls -al $GITHUB_WORKSPACE
+          echo "List possible scripts folders:"
+          ls -al $GITHUB_WORKSPACE | grep -i scripts || echo "No folder named scripts"
+
+
       - name: 更新Feeds
         run: |
           cd ./wrt/
@@ -176,7 +186,6 @@ jobs:
         run: |
           cd ./wrt/package/
 
-          chmod +x $GITHUB_WORKSPACE/Scripts/*.sh
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
