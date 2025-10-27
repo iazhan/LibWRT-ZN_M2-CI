@@ -32,7 +32,8 @@ jobs:
       fail-fast: false
       #max-parallel: 3
       matrix:
-        CONFIG: [ZN_M2-WIFI-YES, ZN_M2-WIFI-NO]
+        # CONFIG: [ZN_M2-WIFI-YES, ZN_M2-WIFI-NO]
+        CONFIG: [ZN_M2-WIFI-NO]
         SOURCE: [LiBwrt/openwrt-6.x]
         BRANCH: [k6.12-nss]
 
