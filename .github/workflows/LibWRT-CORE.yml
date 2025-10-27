@@ -189,7 +189,8 @@ jobs:
       - name: 加载自定义软件包
         run: |
           cd ./wrt/package/
-
+          
+          chmod +x $GITHUB_WORKSPACE/Scripts/*.sh
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
