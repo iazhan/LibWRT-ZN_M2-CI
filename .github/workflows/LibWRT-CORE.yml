@@ -183,6 +183,8 @@ jobs:
       - name: 加载自定义设置
         run: |
           cd ./wrt/
+          
+          mkdir ./upload/
 
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt >> .config
@@ -191,7 +193,7 @@ jobs:
           fi
 
           # 复制配置文件并重命名为 LibWRT.config
-          cp -f ./.config ./upload/LibWRT.config
+          cp -f .config ./upload/LibWRT.config
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
 
