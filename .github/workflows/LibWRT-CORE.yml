@@ -165,20 +165,6 @@ jobs:
             echo "caches cleanup done!"
           fi
 
-      - name: Debug workspace content
-        run: |
-          echo "PWD = $(pwd)"
-          echo "WORKSPACE = $GITHUB_WORKSPACE"
-          echo "List workspace root:"
-          ls -al $GITHUB_WORKSPACE
-          echo "List possible scripts folders:"
-          ls -al $GITHUB_WORKSPACE | grep -i scripts || echo "No folder named scripts"
-
-      - name: Debug Scripts content
-        run: |
-          echo "List contents of Scripts folder:"
-          ls -al $GITHUB_WORKSPACE/Scripts
-
       - name: 更新Feeds
         run: |
           cd ./wrt/
